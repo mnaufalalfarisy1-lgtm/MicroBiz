@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Transactions | MicroBiz</title>
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/manage-transaction.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MicroBiz</div>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="manage-transaction.html" class="active">Transactions</a>
+            <a href="tax-report.html">Tax Report</a>
+            <a href="POS.html">POS</a>
+        </div>
+        <div class="user-avatar"><i class="fa-solid fa-user-circle"></i></div>
+    </nav>
+
+    <div class="dashboard-container">
+        <header class="page-header">
+            <h1>Transaction Management</h1>
+            <div class="header-actions">
+                <button class="btn secondary"><i class="fas fa-filter"></i> Filter</button>
+                <button class="btn primary"><i class="fas fa-plus"></i> New Transaction</button>
+            </div>
+        </header>
+
+        <div class="card search-filter-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search by ID or Customer Name...">
+            </div>
+            <select class="custom-select">
+                <option value="all">All Status</option>
+                <option value="completed">Completed</option>
+                <option value="pending">Pending</option>
+                <option value="cancelled">Cancelled</option>
+            </select>
+        </div>
+
+        <div class="card">
+            <div class="table-responsive">
+                <table class="activity-table">
+                    <thead>
+                        <tr>
+                            <th>ID Transaction</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#TRX-202311-001</td>
+                            <td>Nov 20, 2023</td>
+                            <td>Ani Jaya</td>
+                            <td class="amount-cell">Rp 1.500.000</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td>
+                                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#TRX-202311-002</td>
+                            <td>Nov 21, 2023</td>
+                            <td>Budi Sentosa</td>
+                            <td class="amount-cell">Rp 750.000</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td>
+                                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#TRX-202311-003</td>
+                            <td>Nov 22, 2023</td>
+                            <td>Citra Lestari</td>
+                            <td class="amount-cell">Rp 3.200.000</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td>
+                                <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

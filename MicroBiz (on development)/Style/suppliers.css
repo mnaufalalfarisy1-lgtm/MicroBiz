@@ -1,0 +1,193 @@
+/* Style/suppliers.css */
+
+/* --- Card & Toolbar (Standard) --- */
+.table-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    padding: 25px;
+}
+
+.table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.filter-group .form-select {
+    padding: 10px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    color: #555;
+    background: white;
+    cursor: pointer;
+}
+
+/* --- Table Styles --- */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 700px;
+}
+
+.custom-table th {
+    background: #f9fafb;
+    color: #6b7280;
+    font-weight: 600;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.custom-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.95rem;
+    vertical-align: middle;
+    color: #333;
+}
+
+.custom-table tr:hover {
+    background-color: #fafafa;
+}
+
+/* --- Supplier Info Avatar --- */
+.supplier-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-initial {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px; /* Kotak rounded biar beda sama customer */
+    background: #e0e7ff;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.sub-text {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 2px;
+}
+
+/* --- BADGES (Kategori Supplier) --- */
+.badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Warna Kategori */
+.badge.electronics { background: #dbeafe; color: #1e40af; } /* Biru Tua */
+.badge.furniture { background: #ffedd5; color: #9a3412; }   /* Orange */
+.badge.supplies { background: #f3e8ff; color: #6b21a8; }    /* Ungu */
+.badge.services { background: #dcfce7; color: #166534; }    /* Hijau */
+
+/* --- Contact Link (WA/Phone) --- */
+.contact-link {
+    text-decoration: none;
+    color: #16a34a; /* Warna WA */
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.2s;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+    color: #15803d;
+}
+
+/* --- Action Buttons --- */
+.action-btn {
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    border: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    margin: 0 2px;
+}
+
+.btn-call { background: #dcfce7; color: #16a34a; }
+.btn-call:hover { background: #16a34a; color: white; }
+
+.btn-edit { background: #eff6ff; color: var(--primary-color); }
+.btn-edit:hover { background: var(--primary-color); color: white; }
+
+.btn-delete { background: #fee2e2; color: var(--danger-color); }
+.btn-delete:hover { background: var(--danger-color); color: white; }
+
+/* --- Pagination --- */
+.pagination-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.small-btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    min-width: 40px;
+    justify-content: center;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .table-toolbar { flex-direction: column; }
+    .search-box, .filter-group, .form-select { width: 100%; }
+    
+    /* Sembunyikan kolom Kota di HP biar muat */
+    .custom-table th:nth-child(5), 
+    .custom-table td:nth-child(5) {
+        display: none;
+    }
+}

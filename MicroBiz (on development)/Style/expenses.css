@@ -1,0 +1,141 @@
+/* Style/expenses.css */
+
+/* --- Card Table Wrapper --- */
+.table-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    padding: 25px;
+}
+
+/* --- Toolbar (Search & Filter) --- */
+.table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.form-select {
+    padding: 10px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    color: #555;
+    background: white;
+    cursor: pointer;
+}
+
+/* --- Table Styles --- */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.custom-table th {
+    background: #f9fafb;
+    color: #6b7280;
+    font-weight: 600;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.custom-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.95rem;
+    vertical-align: middle;
+    color: #333;
+}
+
+.custom-table tr:hover {
+    background-color: #fafafa;
+}
+
+/* --- Badges Kategori (Warna Warni) --- */
+.badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Kategori */
+.category.utility { background: #fef3c7; color: #d97706; } /* Kuning - Listrik */
+.category.supply { background: #e0e7ff; color: #4338ca; } /* Biru - ATK */
+.category.maintenance { background: #f3f4f6; color: #4b5563; } /* Abu - Service */
+
+/* Status Pembayaran */
+.status.paid { background: #dcfce7; color: #166534; } /* Hijau */
+.status.pending { background: #fee2e2; color: #991b1b; } /* Merah */
+
+/* --- Action Buttons --- */
+.action-btn {
+    width: 32px; height: 32px;
+    border-radius: 6px; border: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: 0.2s; margin: 0 2px;
+}
+.btn-edit { background: #eff6ff; color: var(--primary-color); }
+.btn-edit:hover { background: var(--primary-color); color: white; }
+.btn-delete { background: #fee2e2; color: var(--danger-color); }
+.btn-delete:hover { background: var(--danger-color); color: white; }
+
+/* --- Pagination --- */
+.pagination-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+.small-btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    min-width: 40px;
+    justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .table-toolbar {
+        flex-direction: column;
+    }
+    .search-box, .filter-group, .form-select {
+        width: 100%;
+    }
+}

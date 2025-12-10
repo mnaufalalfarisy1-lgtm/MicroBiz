@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point of Sales | MicroBiz</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/POS.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
+                    <span class="logo-text"> MicroBiz</span>
+                </a>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-header">Main Menu</li>
+                <li><a href="dashboard.html"><i class="fa-solid fa-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="dashboardOwner.html"><i class="fa-solid fa-user-tie"></i> <span>Owner Dashboard</span></a></li>
+                <li><a href="POS.html" class="active"><i class="fa-solid fa-cash-register"></i> <span>Point of Sales</span></a></li>
+                <li><a href="product-list.html"><i class="fa-solid fa-box-open"></i> <span>Product List</span></a></li>
+                
+                <li class="menu-header">Data Master</li>
+                <li><a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customers</span></a></li>
+                <li><a href="suppliers.html"><i class="fa-solid fa-truck-field"></i> <span>Suppliers</span></a></li>
+                <li><a href="users.html"><i class="fa-solid fa-id-card-clip"></i> <span>Users</span></a></li>
+                
+                <li class="menu-header">Finance</li>
+                <li><a href="invoice.html"><i class="fa-solid fa-file-invoice-dollar"></i> <span>Laporan (Trx)</span></a></li>
+                <li><a href="expenses.html"><i class="fa-solid fa-money-bill-transfer"></i> <span>Expenses</span></a></li>
+                <li><a href="settings.html"><i class="fa-solid fa-cog"></i> <span>Settings</span></a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content" style="display:flex; flex-direction:row; height:100vh; overflow:hidden;">
+            
+            <section class="products-section" style="flex:3; overflow-y:auto; padding:20px;">
+                <div class="page-header">
+                    <h2>Point of Sales</h2>
+                    <button class="btn primary"><i class="fas fa-plus"></i> New Order</button>
+                </div>
+                <div class="products-controls">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search products...">
+                    </div>
+                    <div class="filter-tabs">
+                        <button class="filter-btn active">All</button>
+                        <button class="filter-btn">Beverages</button>
+                    </div>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="Media/Pos/espresso.jpg" alt="Espresso">
+                        <h3>Espresso</h3>
+                        <p class="price">$3.50</p>
+                        <button class="btn btn-add">+ Add</button>
+                    </div>
+                    </div>
+            </section>
+
+            <aside class="order-summary" style="flex:1.2; background:white; border-left:1px solid #eee; display:flex; flex-direction:column; padding:20px;">
+                <h3>Order Summary</h3>
+                <ul class="order-items" style="flex:1; overflow-y:auto;">
+                    <li class="order-item">
+                        <div class="item-info">
+                            <p class="item-name">Latte</p>
+                            <p class="item-price-each">$4.25</p>
+                        </div>
+                        <div class="quantity-control">
+                            <span>x2</span>
+                        </div>
+                        <span class="item-total">$8.50</span>
+                    </li>
+                </ul>
+                <div class="summary-details">
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span>$16.20</span>
+                    </div>
+                    <button class="btn primary btn-full-width"><i class="fas fa-credit-card"></i> Checkout</button>
+                </div>
+            </aside>
+            
+            <div onclick="toggleSidebar()" style="position:absolute; top:20px; left:20px; background:white; padding:10px; border-radius:50%; box-shadow:0 2px 5px rgba(0,0,0,0.1); cursor:pointer; z-index:1001;">
+                 <i class="fa-solid fa-bars"></i>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+            // POS layout khusus, jadi main-content margin-nya yang main
+            const main = document.querySelector('.main-content');
+            if(document.querySelector('.sidebar').classList.contains('collapsed')){
+                main.style.marginLeft = '80px';
+                main.style.width = 'calc(100% - 80px)';
+            } else {
+                main.style.marginLeft = '260px';
+                main.style.width = 'calc(100% - 260px)';
+            }
+        }
+    </script>
+</body>
+</html>

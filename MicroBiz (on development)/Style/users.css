@@ -1,0 +1,158 @@
+/* Style/users.css */
+
+/* Layout Grid */
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* Card Styling */
+.staff-card {
+    position: relative;
+    padding: 25px;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: white;
+    border: 1px solid #f3f4f6;
+    display: flex;
+    flex-direction: column;
+}
+
+.staff-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Header Bagian Atas Card */
+.staff-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.staff-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f8fafc;
+}
+
+.staff-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.staff-header p {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.role-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #f3f4f6;
+    color: #555;
+}
+
+.role-text.cashier { background: #e0e7ff; color: var(--primary-color); }
+
+/* Body Info */
+.staff-body {
+    flex-grow: 1; /* Biar action button terdorong ke bawah */
+    margin-bottom: 20px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.info-row i {
+    width: 20px;
+    text-align: center;
+    color: #94a3b8;
+}
+
+/* Actions Buttons */
+.staff-actions {
+    display: flex;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.icon-btn-action {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #64748b;
+    transition: 0.2s;
+}
+
+.icon-btn-action:hover {
+    background: #f8fafc;
+    color: #333;
+}
+
+.icon-btn-action.delete:hover {
+    background: #fee2e2;
+    color: var(--danger-color);
+    border-color: #fee2e2;
+}
+
+.full-width { width: 100%; }
+
+/* Badges & Indicators */
+.role-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.role-badge.admin {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-indicator {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.status-indicator.online { background: #22c55e; box-shadow: 0 0 0 2px #dcfce7; }
+
+/* Owner Card Special Style */
+.owner-card {
+    border: 1px solid #e0e7ff;
+    background: #fcfdff;
+}
+
+/* Inactive Card Style */
+.staff-card.inactive {
+    opacity: 0.8;
+    background: #fafafa;
+}

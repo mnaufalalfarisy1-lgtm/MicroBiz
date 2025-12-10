@@ -1,0 +1,139 @@
+/* Toolbar: Search & Filter */
+.table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Agar turun ke bawah saat di HP */
+}
+
+.search-box {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px 12px 40px; /* Padding kiri untuk icon */
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+    
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+/* Table Styling Pro */
+.table-responsive {
+    overflow-x: auto; /* KUNCI MOBILE: Scroll samping jika tabel kepanjangan */
+    -webkit-overflow-scrolling: touch;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 600px; /* Memicu scroll horizontal di layar kecil */
+}
+
+.custom-table th {
+    background: #f8f9fc;
+    color: #6b7280;
+    font-weight: 600;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #e5e7eb;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.custom-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.pagination-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.small-btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    min-width: 40px;
+    justify-content: center;
+}
+
+/* Customer Info di Tabel */
+.cust-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-initial {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #e0e7ff;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Badge Status */
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.badge.active { background: #dcfce7; color: #166534; }
+.badge.inactive { background: #f3f4f6; color: #6b7280; }
+
+/* Action Buttons Icon */
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 5px;
+}
+.btn-edit { background: #eff6ff; color: var(--primary-color); }
+.btn-edit:hover { background: var(--primary-color); color: white; }
+.btn-delete { background: #fee2e2; color: var(--danger-color); }
+.btn-delete:hover { background: var(--danger-color); color: white; }
+
+/* --- MOBILE MEDIA QUERY --- */
+@media (max-width: 768px) {
+    .table-toolbar {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    /* Trik agar tabel tidak terlihat putus */
+    .card {
+        padding: 15px; /* Kurangi padding card di HP */
+    }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Management | MicroBiz</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/users.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
+                    <span class="logo-text"> MicroBiz</span>
+                </a>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-header">Main Menu</li>
+                <li><a href="dashboard.html"><i class="fa-solid fa-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="dashboardOwner.html"><i class="fa-solid fa-user-tie"></i> <span>Owner Dashboard</span></a></li>
+                <li><a href="POS.html"><i class="fa-solid fa-cash-register"></i> <span>Point of Sales</span></a></li>
+                <li><a href="product-list.html"><i class="fa-solid fa-box-open"></i> <span>Product List</span></a></li>
+                
+                <li class="menu-header">Data Master</li>
+                <li><a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customers</span></a></li>
+                <li><a href="suppliers.html"><i class="fa-solid fa-truck-field"></i> <span>Suppliers</span></a></li>
+                <li><a href="users.html" class="active"><i class="fa-solid fa-id-card-clip"></i> <span>Users</span></a></li>
+                
+                <li class="menu-header">Finance</li>
+                <li><a href="invoice.html"><i class="fa-solid fa-file-invoice-dollar"></i> <span>Laporan (Trx)</span></a></li>
+                <li><a href="expenses.html"><i class="fa-solid fa-money-bill-transfer"></i> <span>Expenses</span></a></li>
+                <li><a href="setting.html"><i class="fa-solid fa-cog"></i> <span>Settings</span></a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="toggle-sidebar" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></div>
+                <div class="topbar-right">
+                    <div class="user-profile"><span>John Doe</span><i class="fa-solid fa-user-circle" style="font-size: 1.5rem;"></i></div>
+                </div>
+            </header>
+
+            <div class="content-padding">
+                <div class="page-header">
+                    <div>
+                        <h2>Staff Management</h2>
+                        <p style="color:#666;">Manage access rights and employee accounts.</p>
+                    </div>
+                    <button class="btn primary"><i class="fa-solid fa-user-plus"></i> Add New Staff</button>
+                </div>
+
+                <div class="staff-grid">
+                    
+                    <div class="card staff-card owner-card">
+                        <div class="role-badge admin">Owner</div>
+                        <div class="staff-header">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4a4aff&color=fff" alt="John">
+                            <div>
+                                <h3>John Doe</h3>
+                                <p>john.doe@microbiz.com</p>
+                            </div>
+                        </div>
+                        <div class="staff-body">
+                            <div class="info-row">
+                                <i class="fa-solid fa-phone"></i> <span>0812-3456-7890</span>
+                            </div>
+                            <div class="info-row">
+                                <i class="fa-solid fa-clock"></i> <span>Last login: Just now</span>
+                            </div>
+                        </div>
+                        <div class="staff-actions">
+                            <button class="btn secondary small" onclick="window.location.href='setting.html'">My Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="card staff-card">
+                        <div class="status-indicator online"></div>
+                        <div class="staff-header">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+Putri&background=e0e7ff&color=4a4aff" alt="Sarah">
+                            <div>
+                                <h3>Sarah Putri</h3>
+                                <span class="role-text cashier">Cashier</span>
+                            </div>
+                        </div>
+                        <div class="staff-body">
+                            <div class="info-row">
+                                <i class="fa-solid fa-envelope"></i> <span>sarah@microbiz.com</span>
+                            </div>
+                            <div class="info-row">
+                                <i class="fa-solid fa-phone"></i> <span>0819-9988-7766</span>
+                            </div>
+                        </div>
+                        <div class="staff-actions">
+                            <button class="icon-btn-action edit"><i class="fa-solid fa-pen"></i></button>
+                            <button class="icon-btn-action lock"><i class="fa-solid fa-lock"></i></button>
+                            <button class="icon-btn-action delete"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="card staff-card inactive">
+                        <div class="role-badge">Inactive</div>
+                        <div class="staff-header">
+                            <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=f3f4f6&color=999" alt="Budi" style="filter: grayscale(100%);">
+                            <div>
+                                <h3>Budi Santoso</h3>
+                                <span class="role-text">Inventory Staff</span>
+                            </div>
+                        </div>
+                        <div class="staff-body">
+                            <div class="info-row">
+                                <i class="fa-solid fa-envelope"></i> <span>budi@microbiz.com</span>
+                            </div>
+                            <div class="info-row">
+                                <i class="fa-solid fa-phone"></i> <span>0877-1234-5678</span>
+                            </div>
+                        </div>
+                        <div class="staff-actions">
+                            <button class="btn secondary small full-width">Re-activate</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+            document.querySelector('.main-content').classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>

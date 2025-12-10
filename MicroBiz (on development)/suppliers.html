@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suppliers | MicroBiz</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="Style/style.css">
+  <link rel="stylesheet" href="Style/suppliers.css">
+</head>
+<body>
+  
+  <div class="app-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="logo">
+              <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
+              <span class="logo-text"> MicroBiz</span>
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-header">Main Menu</li>
+            <li><a href="dashboard.html"><i class="fa-solid fa-home"></i> <span>Dashboard</span></a></li>
+            <li><a href="dashboardOwner.html"><i class="fa-solid fa-user-tie"></i> <span>Owner Dashboard</span></a></li>
+            <li><a href="POS.html"><i class="fa-solid fa-cash-register"></i> <span>Point of Sales</span></a></li>
+            <li><a href="product-list.html"><i class="fa-solid fa-box-open"></i> <span>Product List</span></a></li>
+            
+            <li class="menu-header">Data Master</li>
+            <li><a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customers</span></a></li>
+            <li><a href="suppliers.html" class="active"><i class="fa-solid fa-truck-field"></i> <span>Suppliers</span></a></li>
+            <li><a href="users.html"><i class="fa-solid fa-id-card-clip"></i> <span>Users</span></a></li>
+            
+            <li class="menu-header">Finance</li>
+            <li><a href="invoice.html"><i class="fa-solid fa-file-invoice-dollar"></i> <span>Laporan (Trx)</span></a></li>
+            <li><a href="expenses.html"><i class="fa-solid fa-money-bill-transfer"></i> <span>Expenses</span></a></li>
+            <li><a href="setting.html"><i class="fa-solid fa-cog"></i> <span>Settings</span></a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="toggle-sidebar" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></div>
+        <div class="topbar-right">
+          <div class="user-profile"><span>John Doe</span> <i class="fa-solid fa-user-circle" style="font-size: 1.5rem;"></i></div>
+        </div>
+      </header>
+
+      <div class="content-padding">
+        
+        <div class="page-header" style="margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h2>Supplier Database</h2>
+                <p style="color:#888; font-size:0.9rem;">Manage contacts for your product sources.</p>
+            </div>
+            <button class="btn primary"><i class="fa-solid fa-plus"></i> Add Supplier</button>
+        </div>
+
+        <div class="card table-card">
+          <div class="table-toolbar">
+            <div class="search-box">
+              <i class="fa-solid fa-search"></i>
+              <input type="text" placeholder="Search supplier name...">
+            </div>
+            <div class="filter-group">
+                <select class="form-select">
+                    <option>All Categories</option>
+                    <option>Electronics</option>
+                    <option>Furniture</option>
+                    <option>Office Supplies</option>
+                    <option>Services</option>
+                </select>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Supplier Name</th>
+                  <th>Contact Person</th>
+                  <th>Category</th>
+                  <th>Phone / WhatsApp</th>
+                  <th>City</th>
+                  <th style="text-align:center;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td>
+                    <div class="supplier-info">
+                      <div class="avatar-initial" style="background:#f59e0b; color:white;">IJ</div>
+                      <div>
+                        <strong>IndoJaya Furniture</strong>
+                        <span class="sub-text">Active since 2021</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Pak Budi</td>
+                  <td><span class="badge furniture">Furniture</span></td>
+                  <td>
+                    <a href="#" class="contact-link">
+                        <i class="fa-brands fa-whatsapp"></i> 0812-3333-4444
+                    </a>
+                  </td>
+                  <td>Bandung</td>
+                  <td style="text-align:center;">
+                    <button class="action-btn btn-call"><i class="fa-solid fa-phone"></i></button>
+                    <button class="action-btn btn-edit"><i class="fa-solid fa-pen"></i></button>
+                    <button class="action-btn btn-delete"><i class="fa-solid fa-trash"></i></button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="supplier-info">
+                      <div class="avatar-initial" style="background:#3b82f6; color:white;">ES</div>
+                      <div>
+                        <strong>Elektronik Sentosa</strong>
+                        <span class="sub-text">Official Distributor</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Ko Hendra</td>
+                  <td><span class="badge electronics">Electronics</span></td>
+                  <td>
+                    <a href="#" class="contact-link">
+                        <i class="fa-brands fa-whatsapp"></i> 0899-1111-2222
+                    </a>
+                  </td>
+                  <td>Jakarta</td>
+                  <td style="text-align:center;">
+                    <button class="action-btn btn-call"><i class="fa-solid fa-phone"></i></button>
+                    <button class="action-btn btn-edit"><i class="fa-solid fa-pen"></i></button>
+                    <button class="action-btn btn-delete"><i class="fa-solid fa-trash"></i></button>
+                  </td>
+                </tr>
+
+                 <tr>
+                    <td>
+                      <div class="supplier-info">
+                        <div class="avatar-initial" style="background:#8b5cf6; color:white;">AT</div>
+                        <div>
+                          <strong>Alpha Tech Supplies</strong>
+                          <span class="sub-text">Vendor ID: #SUP-009</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Siska Amelia</td>
+                    <td><span class="badge supplies">Office Supplies</span></td>
+                    <td>
+                      <a href="#" class="contact-link">
+                          <i class="fa-brands fa-whatsapp"></i> 0878-5555-6666
+                      </a>
+                    </td>
+                    <td>Surabaya</td>
+                    <td style="text-align:center;">
+                      <button class="action-btn btn-call"><i class="fa-solid fa-phone"></i></button>
+                      <button class="action-btn btn-edit"><i class="fa-solid fa-pen"></i></button>
+                      <button class="action-btn btn-delete"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                  </tr>
+
+              </tbody>
+            </table>
+          </div> 
+          
+          <div class="pagination-container">
+              <button class="btn secondary small-btn">Prev</button>
+              <button class="btn primary small-btn">1</button>
+              <button class="btn secondary small-btn">2</button>
+              <button class="btn secondary small-btn">Next</button>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.querySelector('.sidebar').classList.toggle('collapsed');
+      document.querySelector('.main-content').classList.toggle('expanded');
+    }
+  </script>
+</body>
+</html>

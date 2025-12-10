@@ -1,0 +1,274 @@
+/* Style/style.css - GLOBAL LAYOUT & SIDEBAR */
+
+/* ==================== VARIABLES & RESET ==================== */
+:root {
+  --primary-color: #4a4aff;
+  --primary-dark: #3b3bff;
+  --success-color: #16a34a;
+  --danger-color: #ef4444;
+  --bg-light: #f3f4f6;
+  --bg-white: #ffffff;
+  --text-color: #1f2937;
+  --sidebar-width: 260px;
+  --header-height: 70px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--bg-light);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/* ==================== MAIN LAYOUT STRUCTURE ==================== */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* --- SIDEBAR (KIRI) --- */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--bg-white);
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar-header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Jarak antara ikon dan teks */
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: 1.5rem;
+  width: 100%;
+  transition: all 0.3s ease; /* Animasi halus */
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 20px 15px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.menu-header {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #9ca3af;
+  font-weight: 600;
+  margin: 15px 0 10px 15px;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  color: #4b5563;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.sidebar-menu li a:hover {
+  background-color: #eff6ff;
+  color: var(--primary-color);
+}
+
+.sidebar-menu li a.active {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 6px rgba(74, 74, 255, 0.2);
+}
+
+.sidebar-menu li a i {
+  width: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.logo-icon {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px; /* Menjaga lebar ikon stabil */
+}
+
+.logo-text {
+  white-space: nowrap; /* Mencegah teks turun ke bawah */
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* --- MAIN CONTENT (KANAN) --- */
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width); /* Memberi ruang untuk sidebar */
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  width: calc(100% - var(--sidebar-width));
+}
+
+/* --- TOP HEADER (Di dalam Main Content) --- */
+.topbar {
+  height: var(--header-height);
+  background: var(--bg-white);
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+.toggle-sidebar {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #6b7280;
+  padding: 5px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.icon-btn {
+  position: relative;
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 1.2rem;
+}
+
+.badge-notif {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--danger-color);
+  color: white;
+  font-size: 0.65rem;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+}
+
+/* --- CONTENT PADDING --- */
+/* Gunakan class ini untuk membungkus isi halaman agar rapi */
+.content-padding {
+  padding: 30px;
+  flex: 1;
+}
+
+/* ==================== GLOBAL UTILITIES (Btn, Card, Footer) ==================== */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+.btn.primary { background-color: var(--primary-color); color: white; }
+.btn.primary:hover { background-color: var(--primary-dark); }
+.btn.secondary { background-color: white; border: 1px solid #ddd; color: #555; }
+.btn.secondary:hover { background-color: #f0f0f0; }
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85em;
+  color: #9ca3af;
+  border-top: 1px solid #e5e7eb;
+  margin-top: auto;
+}
+
+/* ==================== SAAT SIDEBAR NGELIPET (COLLAPSED) ==================== */
+
+/* 1. PENTING: Paksa lebar sidebar jadi 80px */
+.sidebar.collapsed {
+  width: 80px;
+}
+
+/* 2. Sembunyikan Teks Logo, Header Menu, dan Teks Link */
+.sidebar.collapsed .logo-text, 
+.sidebar.collapsed .menu-header,
+.sidebar.collapsed .sidebar-menu li a span { 
+  display: none; 
+}
+
+/* 3. Logo jadi rata tengah */
+.sidebar.collapsed .sidebar-header {
+  padding: 0;
+  justify-content: center;
+}
+
+.sidebar.collapsed .logo {
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+}
+
+/* 4. Tombol Menu jadi Kotak & Rata Tengah */
+.sidebar.collapsed .sidebar-menu li a {
+  justify-content: center;
+  padding: 0;           /* Reset padding */
+  width: 50px;          /* Lebar fix */
+  height: 50px;         /* Tinggi fix */
+  margin: 0 auto 5px;   /* Posisi tengah (auto kiri-kanan) */
+  border-radius: 12px;  /* Sudut membulat */
+}
+
+.sidebar.collapsed .sidebar-menu li a i {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+/* 5. Konten Utama Melebar */
+.main-content.expanded { 
+  margin-left: 80px; 
+  width: calc(100% - 80px);
+}

@@ -1,0 +1,170 @@
+/* Style/dasOwn.css - FINAL FIXED & SPACIOUS VERSION */
+
+/* --- Page Header & Actions --- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px; /* UPDATE: Jarak ke bawah lebih lega */
+}
+
+.page-header h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.header-actions { display: flex; gap: 10px; }
+
+.custom-select {
+    padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px;
+    background: white; color: #555; outline: none; cursor: pointer;
+}
+
+/* --- Summary Cards (FIXED) --- */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* UPDATE: Jarak antar kartu lebih besar */
+    margin-bottom: 50px; /* UPDATE: Jarak ke section bawah lebih lega */
+}
+
+.summary-card {
+    /* Wajib redefine background dll biar ga kalah sama .card */
+    background: white; 
+    border-radius: 16px; /* UPDATE: Radius lebih rounded modern */
+    padding: 35px; /* UPDATE: Padding dalam lebih luas */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* UPDATE: Shadow lebih halus */
+    border: 1px solid #f3f4f6;
+    
+    /* INI FIX-NYA: Paksa flex-direction jadi ROW */
+    display: flex !important; 
+    flex-direction: row !important; 
+    align-items: center;
+    gap: 25px; /* UPDATE: Jarak icon ke teks lebih lega */
+}
+
+/* Pastikan icon tidak mengecil/gepeng */
+.card-icon {
+    flex-shrink: 0; /* Icon dilarang menyusut */
+    width: 60px;    /* Lebar fix */
+    height: 60px;   /* Tinggi fix */
+    border-radius: 12px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.5rem;
+}
+
+/* Text Container di sebelah icon */
+.summary-card div {
+    flex-grow: 1; /* Ambil sisa ruang */
+}
+
+/* Styling teks dalam card */
+.revenue, .profit, .customers {
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    margin: 5px 0; 
+    color: #222;
+    line-height: 1.2;
+}
+.card-title { color: #888; font-size: 0.85rem; font-weight: 500; margin: 0; }
+.detail { font-size: 0.8rem; font-weight: 500; }
+.detail.green { color: var(--success-color); }
+.detail.red { color: var(--danger-color); }
+
+
+/* --- MAIN LAYOUT (GRID AREA) --- */
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "chart chart"   
+        "table donut";  
+    gap: 40px; /* UPDATE: Jarak antar elemen grid lebih lega */
+}
+
+/* UPDATE PENTING: Mencegah card "meledak" / overflow di dalam grid */
+.main-content-grid > .card {
+    min-width: 0; 
+}
+
+.income-expenses-chart { grid-area: chart; width: 100%; }
+.recent-activities     { grid-area: table; }
+.project-status        { grid-area: donut; }
+
+/* Responsive HP */
+@media (max-width: 1024px) {
+    .main-content-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "chart" "table" "donut";
+    }
+}
+
+/* --- Card Styles --- */
+.card {
+    background: white; 
+    border-radius: 16px; /* UPDATE: Radius lebih rounded */
+    padding: 40px; /* UPDATE: Padding dalam card lebih luas (Whitespace) */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
+    border: 1px solid #f3f4f6;
+    display: flex; 
+    flex-direction: column; /* Default card ke bawah */
+}
+
+.card h3 { font-size: 1.1rem; font-weight: 600; color: #333; margin-bottom: 20px; }
+
+/* --- Chart Containers --- */
+.chart-box-lg { position: relative; height: 320px; width: 100%; }
+
+/* UPDATE PENTING: FIX DONUT CHART */
+.chart-box-sm { 
+    position: relative; 
+    height: 250px; 
+    width: 100%;       /* Lebar wajib 100% dari parent */
+    overflow: hidden;  /* Potong jika ada yang lewat */
+    
+    /* HAPUS flexbox di sini agar chart.js bisa resize dengan benar */
+    display: block;    
+}
+
+/* Legend Custom */
+.chart-legend-custom { font-size: 0.85rem; color: #666; }
+.chart-legend-custom .dot {
+    display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+    margin-right: 5px; margin-left: 10px;
+}
+.dot.income { background: var(--primary-color); }
+
+.project-legend {
+    display: flex; justify-content: center; gap: 10px; margin-top: 15px; flex-wrap: wrap;
+}
+.legend-dot {
+    font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; color: white; font-weight: 500;
+}
+
+/* --- Table Styles --- */
+.table-responsive { overflow-x: auto; width: 100%; }
+.activity-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.activity-table th { text-align: left; color: #888; font-weight: 500; padding: 12px 10px; border-bottom: 1px solid #eee; }
+.activity-table td { padding: 15px 10px; border-bottom: 1px solid #f9f9f9; }
+
+.badge { padding: 5px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
+.badge.sale { background: #e0e7ff; color: var(--primary-color); }
+.badge.purchase { background: #fee2e2; color: var(--danger-color); }
+.status.completed { color: var(--success-color); font-weight: 500; }
+.status.pending { color: #d97706; font-weight: 500; }
+
+/* Responsive Adjustment (Mobile) */
+@media (max-width: 768px) {
+    .page-header { margin-bottom: 30px; }
+    .summary-cards { margin-bottom: 30px; gap: 15px; }
+    .main-content-grid { gap: 25px; }
+    
+    /* Di HP, kembalikan padding agar tidak terlalu makan tempat di layar kecil */
+    .summary-card, .card {
+        padding: 25px; 
+    }
+}

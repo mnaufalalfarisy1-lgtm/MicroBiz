@@ -1,0 +1,117 @@
+/* Style/invoice.css - INVOICE DETAIL ONLY */
+
+/* --- Page Header Specific --- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    font-size: 1.5rem; 
+    font-weight: 600; 
+    color: #333;
+}
+
+/* --- Card Style (Override/Additional) --- */
+/* Kita pakai class .card dari global, tapi ini untuk adjustment isinya */
+.card h3 {
+    font-size: 1.1rem; 
+    font-weight: 600; 
+    margin-bottom: 20px;
+    padding-bottom: 15px; 
+    border-bottom: 1px solid #eee; 
+    color: #333;
+}
+
+/* --- Transaction Summary Grid --- */
+.transaction-summary .summary-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    gap: 20px;
+}
+.transaction-summary .label { 
+    display: block; 
+    font-size: 0.85rem; 
+    color: #666; 
+    margin-bottom: 5px; 
+}
+.transaction-summary .value { 
+    font-size: 1rem; 
+    font-weight: 500; 
+    color: #222;
+}
+
+/* Badge Status Khusus Invoice */
+.status-badge.completed {
+    background-color: #dcfce7; 
+    color: #16a34a;
+    padding: 5px 12px; 
+    border-radius: 20px; 
+    font-size: 0.8rem; 
+    font-weight: 600;
+}
+
+/* --- Product List di Invoice --- */
+/* Gunakan class yang agak beda biar ga bentrok sama product-list.html */
+.products-transaction .product-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px; 
+}
+
+.product-item { 
+    border: 1px solid #eee; 
+    border-radius: 10px; 
+    padding: 15px; 
+    transition: 0.2s;
+    background: #fff;
+}
+.product-item:hover { 
+    border-color: var(--primary-color); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.item-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    padding-bottom: 15px; 
+    border-bottom: 1px dashed #eee; 
+}
+.item-header img { 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 8px; 
+    object-fit: cover; 
+}
+.item-info h4 { 
+    font-size: 0.95rem; 
+    font-weight: 600; 
+    color: #333;
+}
+.item-info p { 
+    font-size: 0.85rem; 
+    color: #888; 
+}
+
+.item-details { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 15px; 
+    font-size: 0.9rem; 
+}
+.subtotal label { color: #666; margin-right: 5px; }
+.subtotal span { font-weight: 700; color: var(--primary-color); }
+
+/* --- Payment Info --- */
+.payment-info dl div {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f9f9f9;
+}
+.payment-info dl div:last-child { border-bottom: none; }
+.payment-info dt { color: #666; font-size: 0.95rem; }
+.payment-info dd { font-weight: 600; color: #333; font-size: 0.95rem; }

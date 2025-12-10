@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard | MicroBiz</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/dasOwn.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
+                    <span class="logo-text"> MicroBiz</span>
+                </a>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-header">Main Menu</li>
+                <li><a href="dashboard.html"><i class="fa-solid fa-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="dashboardOwner.html" class="active"><i class="fa-solid fa-user-tie"></i> <span>Owner Dashboard</span></a></li>
+                <li><a href="POS.html"><i class="fa-solid fa-cash-register"></i> <span>Point of Sales</span></a></li>
+                <li><a href="product-list.html"><i class="fa-solid fa-box-open"></i> <span>Product List</span></a></li>
+                
+                <li class="menu-header">Data Master</li>
+                <li><a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customers</span></a></li>
+                <li><a href="suppliers.html"><i class="fa-solid fa-truck-field"></i> <span>Suppliers</span></a></li>
+                <li><a href="users.html"><i class="fa-solid fa-id-card-clip"></i> <span>Users</span></a></li>
+                
+                <li class="menu-header">Finance</li>
+                <li><a href="invoice.html"><i class="fa-solid fa-file-invoice-dollar"></i> <span>Laporan (Trx)</span></a></li>
+                <li><a href="expenses.html"><i class="fa-solid fa-money-bill-transfer"></i> <span>Expenses</span></a></li>
+                <li><a href="setting.html"><i class="fa-solid fa-cog"></i> <span>Settings</span></a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="toggle-sidebar" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="topbar-right">
+                    <div class="icon-btn"><i class="fa-solid fa-bell"></i><span class="badge-notif">5</span></div>
+                    <div class="user-profile"><span>John Doe</span><i class="fa-solid fa-user-circle" style="font-size: 1.5rem;"></i></div>
+                </div>
+            </header>
+
+            <div class="content-padding">
+                <header class="page-header">
+                    <h1>Owner Dashboard</h1>
+                    <div class="header-actions">
+                        <select class="custom-select">
+                            <option>Last 30 Days</option>
+                            <option>Last 60 Days</option>
+                        </select>
+                        <button class="btn secondary"><i class="fas fa-calendar-alt"></i> Set Goals</button>
+                    </div>
+                </header>
+
+                <div class="summary-cards">
+                    <div class="card summary-card">
+                        <div class="card-icon" style="background: #e0e7ff; color: #4a4aff;"><i class="fas fa-dollar-sign"></i></div>
+                        <div>
+                            <p class="card-title">Total Revenue</p>
+                            <h2 class="revenue">Rp 12.500.000</h2>
+                            <span class="detail green"><i class="fas fa-arrow-up"></i> 10% total sales</span>
+                        </div>
+                    </div>
+                    <div class="card summary-card">
+                        <div class="card-icon" style="background: #dcfce7; color: #16a34a;"><i class="fas fa-chart-line"></i></div>
+                        <div>
+                            <p class="card-title">Net Profit</p>
+                            <h2 class="profit">Rp 6.800.000</h2>
+                            <span class="detail green"><i class="fas fa-arrow-up"></i> 4.2% vs expenses</span>
+                        </div>
+                    </div>
+                    <div class="card summary-card">
+                        <div class="card-icon" style="background: #fee2e2; color: #ef4444;"><i class="fas fa-users"></i></div>
+                        <div>
+                            <p class="card-title">Active Customers</p>
+                            <h2 class="customers">1,245</h2>
+                            <span class="detail red"><i class="fas fa-arrow-down"></i> 4 engaged clients</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content-grid">
+                    
+                    <section class="grid-item income-expenses-chart card">
+                        <div class="card-header">
+                            <h3>Income & Expenses Overview</h3>
+                            <div class="chart-legend-custom">
+                                <span class="dot income"></span> Income
+                                </div>
+                        </div>
+                        <div class="chart-box-lg">
+                            <canvas id="barChart"></canvas>
+                        </div>
+                    </section>
+
+                    <section class="grid-item recent-activities card">
+                        <h3>Recent Activities</h3>
+                        <div class="table-responsive">
+                            <table class="activity-table">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="badge sale">Sale</span></td>
+                                        <td>Blue T-Shirt, 2 Pcs</td>
+                                        <td>Rp 200.000</td>
+                                        <td><span class="status completed">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge purchase">Purchase</span></td>
+                                        <td>Office Chairs (Vendor A)</td>
+                                        <td>Rp 1.500.000</td>
+                                        <td><span class="status pending">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge sale">Sale</span></td>
+                                        <td>Coffee Table</td>
+                                        <td>Rp 450.000</td>
+                                        <td><span class="status completed">Completed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="grid-item project-status card">
+                        <h3>Transaction Status</h3>
+                        <div class="chart-box-sm">
+                            <canvas id="doughnutChart"></canvas>
+                        </div>
+                        <div class="project-legend">
+                            <span class="legend-dot" style="background: #4a4aff;">Done</span>
+                            <span class="legend-dot" style="background: #facc15;">Wait</span>
+                            <span class="legend-dot" style="background: #ef4444;">Fail</span>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+<script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+            document.querySelector('.main-content').classList.toggle('expanded');
+        }
+
+        // --- 1. SETUP BAR CHART (Income) ---
+        const ctxBar = document.getElementById('barChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Income',
+                    data: [4500000, 5200000, 4800000, 6100000, 5800000, 7200000],
+                    backgroundColor: '#4a4aff',
+                    // INI SOLUSINYA BIAR GAK GENDUT & KELEBARAN:
+                    barThickness: 40,   /* Lebar batang fix */
+                    borderRadius: 6,    /* Sudut tumpul */
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, /* Agar ngikutin tinggi container CSS (320px) */
+                plugins: {
+                    legend: { display: false } /* Kita pake legend custom HTML aja */
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { borderDash: [5, 5] },
+                        ticks: { callback: function(value) { return 'Rp ' + value/1000 + 'k'; } }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+        
+        // --- 2. SETUP DOUGHNUT CHART (Status) ---
+        const ctxDonut = document.getElementById('doughnutChart').getContext('2d');
+        new Chart(ctxDonut, {
+            type: 'doughnut',
+            data: {
+                labels: ['Done', 'Wait', 'Fail'],
+                datasets: [{
+                    data: [65, 25, 10],
+                    backgroundColor: ['#4a4aff', '#facc15', '#ef4444'],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '75%', /* Lubang tengah besar */
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -30,7 +30,7 @@
     color: #9ca3af;
 }
 
-/* Table Styling Pro */
+/* Table Styling */
 .table-responsive {
     overflow-x: auto; /* KUNCI MOBILE: Scroll samping jika tabel kepanjangan */
     -webkit-overflow-scrolling: touch;

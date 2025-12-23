@@ -1,90 +1,152 @@
-/* Container utama untuk daftar Transaksi */
-.transaction-list-container {
-    padding: 15px 0;
+/* --- Card Table Wrapper --- */
+.table-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    padding: 25px;
+    border: 1px solid #f3f4f6;
 }
 
-/* Judul daftar transaksi */
-.transaction-header {
-    font-size: 1.8em;
-    color: #007bff; /* Warna biru khas aksi/informasi */
-    margin-bottom: 20px;
-}
-
-/* Area untuk kontrol filter dan pencarian */
-.transaction-filter-controls {
+/* --- Toolbar (Search & Filter) --- */
+.table-toolbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #e9f5ff;
-    border-radius: 5px;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
 }
 
-/* Setiap item transaksi dalam daftar */
-.transaction-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.search-box {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    background: white;
+    border-color: var(--primary-color);
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.form-select {
+    padding: 10px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    color: #555;
+    background: white;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+/* --- Table Styles (Custom Table Standard) --- */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 700px;
+}
+
+.custom-table th {
+    background: #f9fafb;
+    color: #6b7280;
+    font-weight: 600;
+    text-align: left;
     padding: 15px;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.85rem;
+    text-transform: uppercase;
 }
 
-.transaction-item:hover {
-    background-color: #f7f9fc;
-}
-
-/* Detail deskriptif transaksi */
-.transaction-details {
-    flex-grow: 1;
-}
-
-.transaction-details .description {
-    font-weight: bold;
+.custom-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.95rem;
+    vertical-align: middle;
     color: #333;
 }
 
-.transaction-details .date {
-    font-size: 0.85em;
-    color: #777;
+.custom-table tr:hover {
+    background-color: #fafafa;
 }
 
-/* Jumlah/Nominal transaksi */
-.transaction-amount {
-    font-size: 1.2em;
+/* --- Utilities Khusus Transaksi --- */
+.text-primary { color: var(--primary-color); }
+.font-bold { font-weight: 600; }
+.flex-between-center { display: flex; justify-content: space-between; align-items: center; }
+.mb-25 { margin-bottom: 25px; }
+
+/* Avatar kecil di tabel */
+.avatar-small {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 600;
+}
+
+/* --- Badges --- */
+.badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
     font-weight: 600;
-    padding: 5px 0;
+    display: inline-block;
+}
+.badge.completed { background: #dcfce7; color: #166534; }
+.badge.pending { background: #fef9c3; color: #854d0e; }
+.badge.canceled { background: #fee2e2; color: #991b1b; }
+
+/* --- Action Buttons --- */
+.action-btn {
+    width: 32px; height: 32px;
+    border-radius: 6px; border: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: 0.2s; margin: 0 2px;
+}
+.btn-view { background: #eff6ff; color: var(--primary-color); }
+.btn-view:hover { background: var(--primary-color); color: white; }
+.btn-print { background: #f3f4f6; color: #4b5563; }
+.btn-print:hover { background: #d1d5db; color: #1f2937; }
+
+/* --- Pagination --- */
+.pagination-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+.small-btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    min-width: 40px;
+    justify-content: center;
 }
 
-/* Warna berdasarkan jenis transaksi (Pemasukan/Pengeluaran) */
-.transaction-amount.credit { /* Pemasukan */
-    color: #28a745;
-}
-
-.transaction-amount.debit { /* Pengeluaran */
-    color: #dc3545;
-}
-
-/* Tombol aksi (misalnya Edit, Lihat Detail) */
-.transaction-actions a {
-    margin-left: 10px;
-    text-decoration: none;
-    color: #007bff;
-    font-size: 0.9em;
-}
-
-.table-clean th, 
-.table-clean td {
-    padding: 15px; /* Pindahkan padding ke sini */
-    border-bottom: 1px solid #f9f9f9;
-}
-
-.table-clean th {
-    border-bottom: 2px solid #eee;
-}
-
-.text-amount {
-    font-weight: 600; 
-    color: var(--primary-color);
+/* Responsive */
+@media (max-width: 768px) {
+    .table-toolbar { flex-direction: column; }
+    .search-box, .filter-group, .form-select { width: 100%; }
 }
